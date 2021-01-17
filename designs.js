@@ -28,7 +28,11 @@ function makeGrid(h,w){
 
 // event listener at table level adds listening to each of the
 //individual td's.
-document.getElementById('pixelCanvas').addEventListener('click', addColor);
+document.getElementById('pixelCanvas').addEventListener('click', function(event){
+  if (event.target.nodeName === 'TD') {
+    addColor()
+  )}
+}  
 
 // to change the background color of individual td's
 function addColor(){
